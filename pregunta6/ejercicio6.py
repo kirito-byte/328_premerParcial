@@ -1,11 +1,11 @@
 
 import psycopg2 as pc
 
-conexion = pc.connect(user="",
+conexion = pc.connect(user="root",
                       password="",
                       host="localhost",
                       port="5432",
-                      database="tubase")
+                      database="midatasamuel")
 cursor = conexion.cursor()
 sql="select avg(case when persona.departamento='01' then inscripcion.notafinal end) CH, avg(case when persona.departamento='02' then inscripcion.notafinal end) LP, avg(case when persona.departamento='03' then inscripcion.notafinal end) CB, avg(case when persona.departamento='04' then inscripcion.notafinal end) RU, avg(case when persona.departamento='05' then inscripcion.notafinal end) PT, avg(case when persona.departamento='06' then inscripcion.notafinal end) TA, avg(case when persona.departamento='07' then inscripcion.notafinal end) SC, avg(case when persona.departamento='08' then inscripcion.notafinal end) BE, avg(case when persona.departamento='09' then inscripcion.notafinal end ) PD from persona, inscripcion where persona.ci=inscripcion.ci_estudiante"
 cursor.execute(sql)
